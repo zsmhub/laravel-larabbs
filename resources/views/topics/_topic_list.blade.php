@@ -7,7 +7,7 @@
             <img class="media-object img-thumbnail mr-3" style="width: 52px; height: 52px;" src="{{ $topic->user->avatar }}" title="{{ $topic->user->name }}">
           </a>
         </div>
-j
+
         <div class="media-body">
 
           <div class="media-heading mt-0 mb-1">
@@ -21,7 +21,7 @@ j
 
           <small class="media-body meta text-secondary">
 
-            <a class="text-secondary" href="#" title="{{ $topic->category->name }}">
+          <a class="text-secondary" href="{{ route('categories.show', [$topic->category_id]) }}" title="{{ $topic->category->name }}">
               <i class="far fa-folder"></i>
               {{ $topic->category->name }}
             </a>
