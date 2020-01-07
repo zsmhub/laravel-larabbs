@@ -37,4 +37,14 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * 访问器-头像链接字段
+     * @param string $value
+     * @return string
+     */
+    public function getAvatarAttribute($value)
+    {
+        return config('app.url') . $value;
+    }
 }
