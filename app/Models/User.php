@@ -45,6 +45,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
      */
     public function getAvatarAttribute($value)
     {
+        if (empty($value)) {
+            return 'https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/60';
+        }
         return config('app.url') . $value;
     }
 }
