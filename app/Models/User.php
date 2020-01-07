@@ -51,8 +51,8 @@ class User extends Authenticatable implements MustVerifyEmailContract
         return config('app.url') . $value;
     }
 
-    public function topic()
+    public function topics()
     {
-        return $this->hasOne(Topic::class);
+        return $this->hasMany(Topic::class);
     }
 }
