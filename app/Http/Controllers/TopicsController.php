@@ -40,7 +40,7 @@ class TopicsController extends Controller
         $topic->user_id = Auth::id();
         $topic->save();
 
-		return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
+		return redirect()->route('topics.show', $topic->id)->with('success', '话题创建成功！');
 	}
 
 	public function edit(Topic $topic)
@@ -56,7 +56,7 @@ class TopicsController extends Controller
 
 		$topic->update($request->all());
 
-		return redirect()->route('topics.show', $topic->id)->with('success', '帖子编辑成功！');
+		return redirect()->route('topics.show', $topic->id)->with('success', '话题编辑成功！');
 	}
 
 	public function destroy(Topic $topic)
@@ -64,7 +64,7 @@ class TopicsController extends Controller
 		$this->authorize('destroy', $topic);
 		$topic->delete();
 
-		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('topics.index')->with('success', '话题成功删除！');
     }
 
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
