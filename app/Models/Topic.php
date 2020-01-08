@@ -43,4 +43,9 @@ class Topic extends Model
         // 预加载防止 N+1 问题
         return $query->with('user', 'category');
     }
+
+    public function link($params = [])
+    {
+        return route('topics.show', array_merge([$this->id, $this->slug], $params));
+    }
 }
