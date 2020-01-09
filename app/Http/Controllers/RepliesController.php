@@ -25,6 +25,7 @@ class RepliesController extends Controller
 		return redirect()->to($reply->topic->link())->with('success', '评论创建成功！');
 	}
 
+    // 监控话题成功删除时，删除该话题下的所有回复
 	public function destroy(Reply $reply)
 	{
 		$this->authorize('destroy', $reply);
