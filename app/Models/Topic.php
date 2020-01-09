@@ -44,6 +44,7 @@ class Topic extends Model
         return $query->with('user', 'category');
     }
 
+    // topics.show 路由的URL拼接
     public function link($params = [])
     {
         return route('topics.show', array_merge([$this->id, $this->slug], $params));
