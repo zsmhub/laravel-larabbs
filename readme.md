@@ -7,8 +7,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-<p># 项目运行注意: </p>
-<p>pull本项目后，需将 .env.example 文件名更改为 .env </p>
-<p>然后再配置 .env 文件中的数据库配置参数、邮件配置参数等</p>
+# 项目运行注意:
+1. pull本项目后，需将 .env.example 文件名更改为 .env
+2. 配置 .env 文件中的数据库配置参数、邮件配置参数等
+3. 执行数据库迁移和数据填充
+```
+php artisan migrate:refresh --seed
+```
+4. 在终端执行以下命令
+```
+# cd 到你的项目下，记得将下面的路径更换为你自己的项目路径
+cd ~/Code/your_project
 
-<p># Larabbs 网站效果图: </p>
+# 启动常驻进程：任务队列监控[创建/编辑话题时会用到]
+# 查看任务队列运行状态网址 (http://your_host/horizon)
+php artisan horizon
+
+```
+5. 在浏览器运行你配置好的域名即可看到效果图
+> 使用虚拟域名进行邮件发送，很大概率会被当做垃圾邮件哦。
+
+# Weibo 网站效果图:
+<!-- ![未登录首页](https://) -->
+<!-- ![已登录首页](https://) -->
