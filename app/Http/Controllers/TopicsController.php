@@ -31,7 +31,7 @@ class TopicsController extends Controller
         }
 
         // 用户回复列表
-        $replies = $topic->replies()->with('user')->get();
+        $replies = $topic->replies()->with('user')->orderBy('created_at', 'desc')->get();
 
         return view('topics.show', compact('topic', 'replies'));
     }
