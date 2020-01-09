@@ -61,7 +61,7 @@ class TopicsController extends Controller
 
 		$topic->update($request->all());
 
-		return redirect()->$topic->link()->with('success', '话题编辑成功！');
+		return redirect()->to($topic->link())->with('success', '话题编辑成功！');
 	}
 
 	public function destroy(Topic $topic)
