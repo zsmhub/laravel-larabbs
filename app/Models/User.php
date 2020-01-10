@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
@@ -62,13 +63,12 @@ class User extends Authenticatable implements MustVerifyEmailContract
     public function setAvatarAttribute($path)
     {
         // 后台传输默认链接头像时
-        if (starts_with($path, 'http')) {
+        if (Str::startsWith($path, 'http')) {
             return null;
         }
 
         // 如果不是 `/uploads` 子串开头，那就是从后台上传的，需要补全 URL
-        if (!starts_with($path, '/uploads')) {
-
+        if (!Str::startsWith($path, '/uploads')) {
             // 拼接完整的 URL
             $path = "/uploads/images/avatars/$path";
         }
