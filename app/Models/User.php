@@ -59,6 +59,34 @@ class User extends Authenticatable implements MustVerifyEmailContract
         return config('app.url') . $value;
     }
 
+    public function setAvatarAttribute($path)
+    {
+        // 后台传输默认链接头像时
+        if (starts_with($path, 'http')) {
+            return null;
+        }
+
+        // 如果不是 `/uploads` 子串开头，那就是从后台上传的，需要补全 URL
+        if (!starts_with($path, '/uploads')) {
+
+            // 拼接完整的 URL
+            $path = "/uploads/images/avatars/$path";
+        }
+
+        $this->attributes['avatar'] = $path;
+    }
+
+    // 修改器
+    public function setPasswordAttribute($value)
+    {
+        // 长度不等于60，做密码加密处理，方便 Administrator 后台更改密码
+        if (strlen($value) != 60) {
+            $value = bcrypt($value);
+        }
+
+        $this->attributes['password'] = $value;
+    }
+
     public function topics()
     {
         return $this->hasMany(Topic::class);
