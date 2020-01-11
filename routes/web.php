@@ -51,3 +51,5 @@ Route::post('/upload_image', 'TopicsController@uploadImage')->name('topics.uploa
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 
 Route::get('/notifications', 'NotificationsController@index')->name('notifications.index');
+
+Route::get('/permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
