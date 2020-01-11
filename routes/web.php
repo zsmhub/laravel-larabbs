@@ -18,7 +18,7 @@ Route::get('/', 'PagesController@root')->name('root');
 // 用户身份验证相关的路由
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // 用户注册相关路由
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -37,9 +37,9 @@ Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verific
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/user/{user}', 'UsersController@show')->name('users.show');
-Route::get('/user/{user}/edit', 'UsersController@edit')->name('users.edit');
-Route::patch('/user/{user}', 'UsersController@update')->name('users.update');
+Route::get('/users/{user}', 'UsersController@show')->name('users.show');
+Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::get('/topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
