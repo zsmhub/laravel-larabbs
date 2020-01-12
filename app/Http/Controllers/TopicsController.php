@@ -50,7 +50,12 @@ class TopicsController extends Controller
 	{
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
-        $topic->save();
+        $ret = $topic->save();
+
+        // xss 过滤后回复内容为空，则评论创建失败
+        if (!$ret) {
+            return redirect()->to($topic->topic->link())->with('danger', '话题创建失败！');
+        }
 
 		return redirect()->to($topic->link())->with('success', '话题创建成功！');
 	}

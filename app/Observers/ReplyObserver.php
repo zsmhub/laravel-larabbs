@@ -23,6 +23,11 @@ class ReplyObserver
     {
         // xss 过滤，这里有个问题待处理：content 字段可能会被处理为空且被保存进数据库！ -- bug
         $reply->content = clean($reply->content, 'default');
+
+        // 内容为空的处理方式，拒绝保存入库
+        if ($reply->content === '') {
+            return false;
+        }
     }
 
     public function deleted(Reply $reply)

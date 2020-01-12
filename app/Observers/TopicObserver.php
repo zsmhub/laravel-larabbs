@@ -16,6 +16,11 @@ class TopicObserver
         // XSS 过滤
         $topic->body = clean($topic->body, 'user_topic_body');
 
+        // 内容为空的处理方式，拒绝保存入库
+        if ($topic->body === '') {
+            return false;
+        }
+
         // 生成话题摘录
         $topic->excerpt = make_excerpt($topic->body);
     }
