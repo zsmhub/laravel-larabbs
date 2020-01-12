@@ -27,9 +27,14 @@ php artisan horizon
 5. 在浏览器运行你配置好的域名即可看到效果图
 > 使用虚拟域名进行邮件发送，很大概率会被当做垃圾邮件哦。
 
-# Weibo 网站效果图:
+# LaraBBS 网站效果图:
+1. 未登录首页
 ![未登录首页](https://github.com/zsmhub/markdown-images/blob/master/QQ20200112-110122@2x.png?raw=true)
+2. 已登录首页
 ![已登录首页](https://github.com/zsmhub/markdown-images/blob/master/QQ20200112-110204@2x.png?raw=true)
+3. 个人中心
 ![个人中心](https://github.com/zsmhub/markdown-images/blob/master/QQ20200112-110354@2x.png?raw=true)
+4. 话题详情页
 ![话题详情页](https://github.com/zsmhub/markdown-images/blob/master/QQ20200112-110442@2x.png?raw=true)
+5. 管理后台
 ![管理后台](https://github.com/zsmhub/markdown-images/blob/master/QQ20200112-110543@2x.png?raw=true)
