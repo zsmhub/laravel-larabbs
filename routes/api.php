@@ -92,6 +92,10 @@ $api->version('v1', [
                 ->name('api.topics.replies.store');
             $api->delete('topics/{topic}/replies/{reply}', 'RepliesController@destroy')
                 ->name('api.topics.relies.destroy');
+
+            // 通知列表
+            $api->get('user/notifications', 'NotificationsController@index')
+                ->name('api.user.notifications.index');
         });
     });
 });
